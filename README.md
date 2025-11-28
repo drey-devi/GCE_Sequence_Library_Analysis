@@ -54,7 +54,7 @@ Generates publication-quality PNG plots for rapid interpretation.
 
 Example Commands
 MAFFT – Full Alignment
-python extract_codons_qc.py extract \
+'python extract_codons_qc.py extract \
   -r ref.fa \
   -i input.fastq \
   -s 121,125,126,129,168,206,223 \
@@ -63,10 +63,10 @@ python extract_codons_qc.py extract \
   --aligned-fasta-out aln_mafft_full.fa \
   --summary-csv aa_mafft_full_summary.csv \
   --plots \
-  --plot-dir plots_mafft_full
+  --plot-dir plots_mafft_full'
 
 MAFFT Profile Alignment (Fastest)
-python extract_codons_qc.py extract \
+'python extract_codons_qc.py extract \
   -r ref.fa \
   -i input.fastq \
   -s 121,125,126,129,168,206,223 \
@@ -76,10 +76,10 @@ python extract_codons_qc.py extract \
   --aligned-fasta-out aln_mafft_profile.fa \
   --summary-csv aa_mafft_profile_summary.csv \
   --plots \
-  --plot-dir plots_mafft_profile
+  --plot-dir plots_mafft_profile'
 
 MUSCLE5 (High Accuracy)
-python extract_codons_qc.py extract \
+'python extract_codons_qc.py extract \
   -r ref.fa \
   -i input.fastq \
   -s 121,125,126,129,168,206,223 \
@@ -89,10 +89,10 @@ python extract_codons_qc.py extract \
   --aligned-fasta-out aln_muscle_full.fa \
   --summary-csv aa_muscle_full_summary.csv \
   --plots \
-  --plot-dir plots_muscle_full
+  --plot-dir plots_muscle_full'
 
 Reuse an Existing Alignment
-python extract_codons_qc.py extract \
+'python extract_codons_qc.py extract \
   -r ref.fa \
   -i reads.fastq \
   -s 5,10,15 \
@@ -100,14 +100,14 @@ python extract_codons_qc.py extract \
   --aligned-fasta aln.fa \
   --summary-csv summary2.csv \
   --plots \
-  --plot-dir plots2
+  --plot-dir plots2'
 
 Post-Process an Existing CSV
-python extract_codons_qc.py post \
+'python extract_codons_qc.py post \
   --detailed-csv detailed.csv \
   --summary-csv summary.csv \
   --plots \
-  --plot-dir plots
+  --plot-dir plots'
 
 Command-line Arguments
 
