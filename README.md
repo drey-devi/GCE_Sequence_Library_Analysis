@@ -1,13 +1,13 @@
 # GCE_Sequence_Library_Analysis
-Library Sequencing Analysis Pipeline
+## Library Sequencing Analysis Pipeline
 
 This repository contains a Python-based workflow for processing next-generation sequencing data from Genetic Code Expansion (GCE) variant libraries. The script performs orientation correction, multiple sequence alignment, codon extraction, PHRED scoring, amino acid translation, and summary/visualization of library composition. It is designed for high-throughput analysis of directed evolution libraries and site-specific mutational scans.
 
-Overview
+## Overview
 
 The pipeline takes a reference sequence (FASTA) and one or more sequencing files (FASTQ), aligns all reads to the reference, extracts user-specified codons, evaluates base quality, and generates both residue-level and full-protein-level summaries. Outputs include CSV tables of extracted codons and amino acids, reconstructed protein variants, alignment files, and graphical summaries.
 
-Input Requirements
+### Input Requirements
 
 Required Inputs
 
@@ -21,7 +21,7 @@ Precomputed alignment (.fasta)
 
 Previously generated detailed CSV for post-processing
 
-Generated Outputs
+### Generated Outputs
 Output Type	Description
 Codon Isolated CSV	Extracted codons at specified sites, associated PHRED scores, and corresponding amino acids
 Amino Acid Summary CSV	Per-site amino-acid counts and frequencies
@@ -31,7 +31,7 @@ Plots (PNG)	Per-site amino acid distributions, protein variant distributions, an
 
 These outputs support downstream selection analysis, fidelity assessment, or comparison of pre- and post-selection libraries.
 
-Pipeline Structure
+### Pipeline Structure
 
 Read Orientation (Biopython)
 Ensures all reads are converted to forward direction before alignment.
@@ -52,9 +52,9 @@ Outputs per-site amino acid distributions and complete protein variants.
 Visualization
 Generates publication-quality PNG plots for rapid interpretation.
 
-Example Commands
+### Example Commands
 MAFFT – Full Alignment
-'python extract_codons_qc.py extract \
+<pre> ```bash python extract_codons_qc.py extract \
   -r ref.fa \
   -i input.fastq \
   -s 121,125,126,129,168,206,223 \
@@ -63,10 +63,10 @@ MAFFT – Full Alignment
   --aligned-fasta-out aln_mafft_full.fa \
   --summary-csv aa_mafft_full_summary.csv \
   --plots \
-  --plot-dir plots_mafft_full'
+  --plot-dir plots_mafft_full ``` </pre>
 
 MAFFT Profile Alignment (Fastest)
-'python extract_codons_qc.py extract \
+<pre> ```bash python extract_codons_qc.py extract \
   -r ref.fa \
   -i input.fastq \
   -s 121,125,126,129,168,206,223 \
@@ -76,10 +76,10 @@ MAFFT Profile Alignment (Fastest)
   --aligned-fasta-out aln_mafft_profile.fa \
   --summary-csv aa_mafft_profile_summary.csv \
   --plots \
-  --plot-dir plots_mafft_profile'
+  --plot-dir plots_mafft_profile``` </pre>
 
 MUSCLE5 (High Accuracy)
-'python extract_codons_qc.py extract \
+<pre> ```bash python extract_codons_qc.py extract \
   -r ref.fa \
   -i input.fastq \
   -s 121,125,126,129,168,206,223 \
@@ -89,10 +89,10 @@ MUSCLE5 (High Accuracy)
   --aligned-fasta-out aln_muscle_full.fa \
   --summary-csv aa_muscle_full_summary.csv \
   --plots \
-  --plot-dir plots_muscle_full'
+  --plot-dir plots_muscle_full``` </pre>
 
 Reuse an Existing Alignment
-'python extract_codons_qc.py extract \
+<pre> ```bash python extract_codons_qc.py extract \
   -r ref.fa \
   -i reads.fastq \
   -s 5,10,15 \
@@ -100,16 +100,16 @@ Reuse an Existing Alignment
   --aligned-fasta aln.fa \
   --summary-csv summary2.csv \
   --plots \
-  --plot-dir plots2'
+  --plot-dir plots2``` </pre>
 
 Post-Process an Existing CSV
-'python extract_codons_qc.py post \
+<pre> ```bash python extract_codons_qc.py post \
   --detailed-csv detailed.csv \
   --summary-csv summary.csv \
   --plots \
-  --plot-dir plots'
+  --plot-dir plots```</pre>
 
-Command-line Arguments
+### Command-line Arguments
 
 Core Options
 
@@ -131,7 +131,7 @@ Core Options
 
 --plots / --plot-dir : Enable and direct plot output
 
-Additional Options
+ Additional Options
 
 --min-quality : PHRED threshold
 
